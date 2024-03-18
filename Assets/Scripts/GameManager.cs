@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    private string generation;
+
     private int maxPokemon = 151;
     [SerializeField] private int maxRounds = 20;
     [SerializeField] private int nextRoundDelay = 3;
@@ -156,7 +158,8 @@ public class GameManager : MonoBehaviour
 
     private string GetPokemonNameFromFile(string fileName)
     {
-        return fileName.Split("\\")[1].Replace(".png", "");
+        string[] nameArr = fileName.Split("/");
+        return nameArr[nameArr.Length - 1].Replace(".png", "");
     }
 
     private string GetPokemonByIndex(int index)
