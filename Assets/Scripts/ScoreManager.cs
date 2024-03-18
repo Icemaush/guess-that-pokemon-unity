@@ -16,20 +16,23 @@ public class ScoreManager : MonoBehaviour
     public int correctAnswerCount;
     private bool previousAnswerCorrect;
 
-    [SerializeField] private GameObject scoreObj;
-    [SerializeField] private GameObject chainObj;
+    private GameObject scoreObj;
+    private GameObject chainObj;
+    private GameObject timerObj;
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            scoreObj = GameObject.FindGameObjectWithTag("Score");
+            chainObj = GameObject.FindGameObjectWithTag("Chain");
+            timerObj = GameObject.FindGameObjectWithTag("Timer");
         }
     }
 
     public void ResetScores()
     {
-        Debug.Log("resetting scores");
         score = 0; 
         chain = 0;
         maxChain = 0;
@@ -41,10 +44,9 @@ public class ScoreManager : MonoBehaviour
 
     public void UpdateScores()
     {
-        Debug.Log("updating scores");
         scoreObj.GetComponent<TextMeshProUGUI>().text = score.ToString();
         chainObj.GetComponent<TextMeshProUGUI>().text = chain.ToString();
-        Debug.Log("scores updated");
+        //timerObj.GetComponent<TextMeshProUGUI>().text = timer..ToString();
     }
 
     public void UpdateScoreCorrectAnswer()

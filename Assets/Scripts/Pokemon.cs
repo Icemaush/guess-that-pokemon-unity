@@ -5,31 +5,28 @@ using UnityEngine.UI;
 
 public class Pokemon : MonoBehaviour
 {
-    //public static Pokemon instance;
-
-    private GameManager gm;
-    public Image image;
+    //public Image image;
 
     public void Awake()
     {
-        //if (instance == null)
-        //{
-        //    instance = this;
-        //}
-
-        gm = GameManager.instance;
-
         transform.SetParent(FindObjectOfType<Canvas>().transform);
 
-        image = gameObject.GetComponent<Image>();
+        Image image = gameObject.GetComponent<Image>();
+        image.sprite = Resources.Load<Sprite>(GameManager.instance.currentPokemonImageResourceName);
 
-        Debug.Log(gm.currentPokemonName);
-        Debug.Log(gm.currentPokemonResourceName);
-        image.sprite = Resources.Load<Sprite>(gm.currentPokemonResourceName);
+        AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+        Debug.Log(audioSource);
+        audioSource.clip = Resources.Load<AudioClip>(GameManager.instance.currentPokemonAudioResourceName);
+        Debug.Log(audioSource.clip);
     }
 
     public void RevealImage()
     {
         GetComponent<Image>().color = Color.white;
+    }
+
+    public void PlayAudio()
+    {
+        GetComponent<AudioSource>().Play();
     }
 }

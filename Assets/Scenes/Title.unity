@@ -191,6 +191,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &263209778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 263209780}
+  - component: {fileID: 263209779}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &263209779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263209778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71a683d70fce02843a00ab84834a68a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRounds: 20
+  nextRoundDelay: 3
+  currentPokemonIndex: 0
+  currentPokemonName: 
+  currentPokemonResourceName: 
+  selectedAnswer: 
+  pokemonPrefab: {fileID: 144480624265280277, guid: 5a82eab946ad2db44a0ff6b52e61dbc3, type: 3}
+--- !u!4 &263209780
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263209778}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 720.3012, y: 466.3313, z: -4.5063596}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,57 +797,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7173380284958908578, guid: 3293419104b5a3d47afc62789339df94, type: 3}
   m_PrefabInstance: {fileID: 3412320864813958006}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2008138276
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2008138278}
-  - component: {fileID: 2008138277}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2008138277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2008138276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71a683d70fce02843a00ab84834a68a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxRounds: 20
-  nextRoundDelay: 3
-  currentPokemonIndex: 0
-  currentPokemonName: 
-  currentPokemonResourceName: 
-  selectedAnswer: 
-  pokemonPrefab: {fileID: 144480624265280277, guid: 5a82eab946ad2db44a0ff6b52e61dbc3, type: 3}
---- !u!4 &2008138278
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2008138276}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 963.2335, y: 468.92242, z: -6.815397}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &100210801092890136
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1017,7 +1017,7 @@ PrefabInstance:
     - target: {fileID: 7335327643399798463, guid: 3293419104b5a3d47afc62789339df94, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2008138277}
+      objectReference: {fileID: 263209779}
     - target: {fileID: 7335327643399798463, guid: 3293419104b5a3d47afc62789339df94, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1058,7 +1058,7 @@ PrefabInstance:
     - target: {fileID: 66587692075377652, guid: b73f1cad4c610e64da9e381fcd560a63, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2008138277}
+      objectReference: {fileID: 263209779}
     - target: {fileID: 66587692075377652, guid: b73f1cad4c610e64da9e381fcd560a63, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1172,5 +1172,5 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 1392743262}
   - {fileID: 67516630}
-  - {fileID: 2008138278}
   - {fileID: 1373350957}
+  - {fileID: 263209780}

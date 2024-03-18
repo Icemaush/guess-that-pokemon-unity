@@ -14,12 +14,10 @@ public class SoundManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            source = GetComponent<AudioSource>();
+            ToggleBackgroundMusic();
+            DontDestroyOnLoad(gameObject);
         }
-
-        source = GetComponent<AudioSource>();
-
-        ToggleBackgroundMusic();
-        DontDestroyOnLoad(gameObject);
     }
 
     public void PlayClip(AudioClip clip, AudioSource source)
@@ -40,12 +38,12 @@ public class SoundManager : MonoBehaviour
         if (isBackgroundMusicPlaying || source.isPlaying)
         {
             source.Stop();
-            isBackgroundMusicPlaying = true;
+            isBackgroundMusicPlaying = false;
         }
         else
         {
             source.Play();
-            isBackgroundMusicPlaying = false;
+            isBackgroundMusicPlaying = true;
         }
     }
 }
