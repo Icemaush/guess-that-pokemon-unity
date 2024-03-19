@@ -5,7 +5,7 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public static Timer Instance;
+    public static Timer instance;
 
     private float timer;
     [SerializeField] private TextMeshProUGUI timerLabel;
@@ -13,9 +13,9 @@ public class Timer : MonoBehaviour
 
     public void Awake()
     {
-        if (Instance != null)
+        if (instance != null)
         {
-            Instance.timer = timer;
+            instance.timer = timer;
         }
     }
 
@@ -43,9 +43,19 @@ public class Timer : MonoBehaviour
     {
         float minutes = Mathf.FloorToInt(time / 60);
         float seconds = Mathf.FloorToInt(time % 60);
-        //float milliseconds = Mathf.FloorToInt(time / 1000);
+        float milliseconds = Mathf.FloorToInt(time * 1000);
+        string msString = milliseconds.ToString();
+        string msFormatted = "0";
 
-        string currentTime = string.Format("{00:00}:{1:00}", minutes, seconds);
+        if (msString.Length == 3)
+        {
+            msFormatted = msString.Substring(0, 1);
+        } else if (msString.Length >= 4)
+        {
+            msFormatted = msString.Substring(msString.Length - 3, 1);
+        }
+
+        string currentTime = string.Format("{00:00}:{1:00}.{02:00}", minutes, seconds, msFormatted);
 
         timerLabel.text = currentTime;
     }

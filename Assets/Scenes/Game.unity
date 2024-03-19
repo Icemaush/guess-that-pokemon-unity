@@ -1572,7 +1572,7 @@ GameObject:
   - component: {fileID: 918841919}
   - component: {fileID: 918841920}
   m_Layer: 5
-  m_Name: TimerContainer
+  m_Name: Timer
   m_TagString: Timer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2050,6 +2050,9 @@ MonoBehaviour:
   chain: 0
   maxChain: 0
   correctAnswerCount: 0
+  scoreObj: {fileID: 1022365807}
+  chainObj: {fileID: 859469289}
+  timerObj: {fileID: 2131141814}
 --- !u!4 &1149034429
 Transform:
   m_ObjectHideFlags: 0
@@ -2236,6 +2239,13 @@ MonoBehaviour:
   currentPokemonAudioResourceName: 
   selectedAnswer: 
   pokemonPrefab: {fileID: 144480624265280277, guid: 5a82eab946ad2db44a0ff6b52e61dbc3, type: 3}
+  gameScreen: {fileID: 4180764}
+  endScreen: {fileID: 642799712}
+  scoreObj: {fileID: 637725971}
+  maxChainObj: {fileID: 1626174488}
+  answersObj: {fileID: 1215757409}
+  timeObj: {fileID: 2036898173}
+  timer: {fileID: 918841920}
 --- !u!4 &1236900068
 Transform:
   m_ObjectHideFlags: 0
@@ -3370,7 +3380,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Coming soon!
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -3459,7 +3469,7 @@ GameObject:
   - component: {fileID: 2131141817}
   - component: {fileID: 2131141816}
   m_Layer: 5
-  m_Name: Timer
+  m_Name: TimerLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

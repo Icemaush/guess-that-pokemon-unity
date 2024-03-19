@@ -15,9 +15,7 @@ public class Pokemon : MonoBehaviour
         image.sprite = Resources.Load<Sprite>(GameManager.instance.currentPokemonImageResourceName);
 
         AudioSource audioSource = gameObject.GetComponent<AudioSource>();
-        Debug.Log(audioSource);
         audioSource.clip = Resources.Load<AudioClip>(GameManager.instance.currentPokemonAudioResourceName);
-        Debug.Log(audioSource.clip);
     }
 
     public void RevealImage()

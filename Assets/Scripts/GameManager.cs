@@ -33,15 +33,20 @@ public class GameManager : MonoBehaviour
     private GameObject selectedAnswerButton;
     private GameObject[] answerButtons;
 
-    [SerializeField] private Pokemon pokemonPrefab;
-    [SerializeField] private Timer timer;
-
-    private GameObject gameScreen;
-    private GameObject endScreen;
+    public Pokemon pokemonPrefab;
 
     private ScoreManager scoreManager;
     private SoundManager soundManager;
     private GenerationManager generationManager;
+
+
+    public GameObject gameScreen;
+    public GameObject endScreen;
+    public GameObject scoreObj;
+    public GameObject maxChainObj;
+    public GameObject answersObj;
+    public GameObject timeObj;
+    public Timer timer;
 
     private IEnumerable<string> pokemonImageFiles;
     private IEnumerable<string> pokemonAudioFiles;
@@ -56,9 +61,6 @@ public class GameManager : MonoBehaviour
         scoreManager = FindAnyObjectByType<ScoreManager>();
         soundManager = FindAnyObjectByType<SoundManager>();
         generationManager = FindAnyObjectByType<GenerationManager>();
-        timer = FindAnyObjectByType<Timer>();
-        gameScreen = GameObject.FindGameObjectWithTag("GameScreen");
-        endScreen = GameObject.FindGameObjectWithTag("EndScreen");
 
         if (generationManager)
         {
@@ -131,6 +133,7 @@ public class GameManager : MonoBehaviour
         LoadPokemon();
         ShowGameScreen();
         timer.StartTimer();
+        
     }
 
     private void ShowGameScreen()
@@ -295,15 +298,10 @@ public class GameManager : MonoBehaviour
 
         ShowEndScreen();
 
-        GameObject scoreObj = GameObject.FindGameObjectWithTag("EndScore");
-        GameObject maxChainObj = GameObject.FindGameObjectWithTag("EndMaxChain");
-        GameObject answersObj = GameObject.FindGameObjectWithTag("EndAnswers");
-        GameObject timeObj = GameObject.FindGameObjectWithTag("EndTime");
-
         scoreObj.GetComponent<TextMeshProUGUI>().text = scoreManager.score.ToString();
         maxChainObj.GetComponent<TextMeshProUGUI>().text = scoreManager.maxChain.ToString();
         answersObj.GetComponent<TextMeshProUGUI>().text = scoreManager.correctAnswerCount.ToString() + " / " + maxRounds;
-        timeObj.GetComponent<TextMeshProUGUI>().text = "Coming soon!";
+        timeObj.GetComponent<TextMeshProUGUI>().text = timer.GetComponentInChildren<TextMeshProUGUI>().text;
     }
 
     #endregion

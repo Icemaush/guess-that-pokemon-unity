@@ -16,18 +16,15 @@ public class ScoreManager : MonoBehaviour
     public int correctAnswerCount;
     private bool previousAnswerCorrect;
 
-    private GameObject scoreObj;
-    private GameObject chainObj;
-    private GameObject timerObj;
+    public GameObject scoreObj;
+    public GameObject chainObj;
+    public GameObject timerObj;
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            scoreObj = GameObject.FindGameObjectWithTag("Score");
-            chainObj = GameObject.FindGameObjectWithTag("Chain");
-            timerObj = GameObject.FindGameObjectWithTag("Timer");
         }
     }
 
@@ -46,7 +43,6 @@ public class ScoreManager : MonoBehaviour
     {
         scoreObj.GetComponent<TextMeshProUGUI>().text = score.ToString();
         chainObj.GetComponent<TextMeshProUGUI>().text = chain.ToString();
-        //timerObj.GetComponent<TextMeshProUGUI>().text = timer..ToString();
     }
 
     public void UpdateScoreCorrectAnswer()
